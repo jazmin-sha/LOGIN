@@ -1,0 +1,90 @@
+
+<div class="container">
+<h1 class="text-center text-primary"></h1> 
+	<div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <form action="/admin/adminlogout" method="POST" class="mb-4">
+                     <input type="submit" value="LOGOUT" class="btn btn-primary btn-block">
+                     <br>
+                    
+                 </form> 
+                <a href="/admin/adminregister">
+                       <input type="submit" value="ADD USER" class="btn btn-primary btn-block">
+                     </a>
+                     <br>
+                     <input type="text" id="input" onkeyup="myFunction()" placeholder="Search" >
+                      <br>
+                <h3>ADMIN PANEL</h3>
+            </div>
+   			<div class="card-body">
+         <table border="2" id="table" class="table table-striped table-bordered table-condensed table-hover">
+                        <thead>
+                            <tr>
+                                <th>username</th>
+                                <th>phone</th>
+                               
+                                <th>edit</th>
+                                <th>delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each users}}
+                            <tr>
+                                <td>{{this.username}}</td>
+                                <td>{{this.phone}}</td>
+                              
+
+                                <td> 
+                                    <a  class="btn btn-lg" href="/admin/update/{{this._id}}">
+                                <button class=" btn glyphicon glyphicon-pencil"></button> edit 
+                                </a>
+                              
+                                </td>
+                                <td> 
+                                  
+                               <a  class="btn  btn-lg" href="/admin/delete/{{this._id}}">
+                                <button  class=" btn glyphicon glyphicon-trash" onClick="return confirm('Are you sure you want to delete?')"></button> Delete 
+                                </a>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+            </table>
+   			</div>
+        </div>
+	</div>
+</div>
+
+
+<script>
+   function preback(){window.history.forward();}
+   setTimeout("preback()",0);
+   window.onunload=function(){null};
+ </script> 
+
+
+ <script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("input");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("table");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+

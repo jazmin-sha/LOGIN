@@ -18,39 +18,32 @@
             <div class="card-body">
 
                 {{!-- <form action="/register" method="POST" onsubmit="return validateform()" name="myform" autocomplete="off"> --}}
-                <form action="/register" method="POST" onsubmit="return checkForm(this);" name="myform" autocomplete="off">
-                        {{#if msg}}
-                                <div class="alert alert-success" role="alert">
-                                    <p style="color :rgb(26, 29, 32)"></li>{{msg}}
-                                    <button type="button" class="close " data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button></p>
-                                </div>
-                                {{/if}}
+                <form action="/admin/adminregister" method="POST" onsubmit="return checkForm(this);" name="myform" autocomplete="off">
+                      
                      <div class="form-group">
-                         <label for="username" style="color: rgb(255, 255, 255);">UserName</label>
-                        <input type="text" id="username" name="username" style="text-color: aliceblue;" required placeholder="Enter UserName" class="form-control" style=" background-color: transparent "> 
+                         <label for="username" style="color: aliceblue;">UserName</label>
+                        <input type="text" id="username" style="text-color: aliceblue;"  name="username" required placeholder="Enter UserName" class="form-control" style=" background-color: transparent "> 
                     </div>
                      <div class="form-group">
                     <label for="phone" style="color: aliceblue;" onkeyup="phonenumber(document.form1.text1)">Mobile No:</label>
-                        <input type="tel  " style="text-color: aliceblue;"  name="phone" id="phone" required class="form-control" placeholder="Mobile Number" style=" background-color: transparent " maxlength="10" > 
+                        <input type="tel  " name="phone" style="text-color: aliceblue;"  id="phone" required class="form-control" placeholder="Mobile Number" style=" background-color: transparent " maxlength="10" > 
                     </div>
                     <div class="form-group">
                         <label for="password" style="color: aliceblue;">Password:</label>
-                        <input type="password" onkeyup='check();' style="text-color: aliceblue;" id="password" name="password" placeholder="Enter Password" class="form-control" required style=" background-color: transparent " maxlength="10"> 
+                        <input type="password" onkeyup='check();' style="text-color: aliceblue;"  id="password" name="password" placeholder="Enter Password" class="form-control" required style=" background-color: transparent " maxlength="6"> 
                     </div>
                     <div class="form-group">
                         <label for="password" style="color: aliceblue;">Confirm Password:</label>
-                        <input type="password" onkeyup='check();' style="text-color: aliceblue;" id="confirm_password" name="confirm_password" placeholder="Enter Password" class="form-control" maxlength="10" required style=" background-color: transparent "> 
+                        <input type="password" onkeyup='check();' id="confirm_password" name="confirm_password" placeholder="Enter Password" class="form-control" maxlength="6" required style=" background-color: transparent "> 
                     </div>
                      <span id='message' ></span>
              		<div class="form-group">
-                    	<button type="submit" value="LOGIN" class="btn btn-warning btn-block float-right login_btn">Sign Up</button>
+                    	<button type="submit" value="Create User" style="text-color: aliceblue;"  class="btn btn-warning btn-block float-right login_btn">Create User</button>
 					</div>
                     <br><br>
                     <div class="form-group">
                    
-                    	<a href="/login"><button type="button" value="SIGNUP" class="btn btn-warning btn-block float-right login_btn" >Login</button></a>
+                    	<a href="/admin/adminwelcome"><button type="button" value="BACK" class="btn btn-warning btn-block float-right login_btn" >BACK</button></a>
                      
 					</div>
 
@@ -61,7 +54,6 @@
          </div>
     </div>
 </div>
-
 
 
 <script type="text/javascript">
@@ -106,27 +98,6 @@
 
 </script>
 
-
-
-{{!-- 
-
-
-<script>
-function phonenumber(inputtxt)
-{
-  var phoneno = /^\d{10}$/;
-  if(inputtxt.value.match(phoneno))
-  {
-      return true;
-  }
-  else
-  {
-     alert("Not a valid Phone Number");
-     return false;
-  }
-  }
-</script>
- --}}
 
 
 <script>

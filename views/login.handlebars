@@ -14,20 +14,28 @@
             <div class="card-body">
 
                 <form action="/login" method="POST" class="mb-4" autocomplete="off">
-
+                                 {{#if msg}}
+                                <div class="alert alert-success" role="alert">
+                                    <p style="color :rgb(26, 29, 32)"></li>{{msg}}
+                                    <button type="button" class="close " data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button></p>
+                                </div>
+                                {{/if}}
                      <div class="form-group">
                         <label for="username" style="color: aliceblue;">USERNAME</label>
-                        <input type="text" name="username" placeholder="Enter UserName" class="form-control" id="xyz" style=" background-color: transparent "> 
+                        <input type="text" style="text-color: aliceblue;"  name="username" placeholder="Enter UserName" class="form-control" id="xyz" style=" background-color: transparent "> 
                     </div>
                     <div class="form-group">
                         <label for="password" style="color: aliceblue;">PASSWORD</label>
-                        <input type="password" name="password" placeholder="Enter Password" class="form-control" id="password" style=" background-color: transparent "> 
+                        <input type="password" style="text-color: aliceblue;"  name="password" placeholder="Enter Password" class="form-control" id="password" style=" background-color: transparent "> 
                     </div>
 					<div class="form-group">
                     	<button type="submit" value="LOGIN" class="btn btn-warning btn-block float-right login_btn">Login</button>
                       <br><br>
                       	<a href="/register"><button type="button" value="SIGNUP" class="btn btn-warning btn-block float-right login_btn" >SignUp</button></a>
 					</div>
+    
 
                  
                 </form>
